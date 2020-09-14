@@ -6,7 +6,7 @@
 # ansible_python_interpreter=/usr/bin/python3
 
 [okd_master_nodes:vars]
-ansible_ssh_common_args='-o StrictHostKeyChecking="no" -o ProxyCommand="ssh -W %h:%p root@nyctea"'
+ansible_ssh_common_args='-o StrictHostKeyChecking="no" -o ProxyCommand="ssh -W %h:%p root@localhost"'
 os=coreos
 disk=20G
 ram=25165824
@@ -17,7 +17,7 @@ devicename=enp6s0
 root_device=/dev/vda
 
 [okd_worker_nodes:vars]
-ansible_ssh_common_args='-o StrictHostKeyChecking="no" -o ProxyCommand="ssh -W %h:%p root@nyctea"'
+ansible_ssh_common_args='-o StrictHostKeyChecking="no" -o ProxyCommand="ssh -W %h:%p root@localhost"'
 os=coreos
 disk=20G
 ram=8388608
@@ -28,7 +28,7 @@ devicename=enp6s0
 root_device=/dev/vda
 
 [okd_service_nodes:vars]
-ansible_ssh_common_args='-o StrictHostKeyChecking="no" -o ProxyCommand="ssh -W %h:%p root@nyctea"'
+ansible_ssh_common_args='-o StrictHostKeyChecking="no" -o ProxyCommand="ssh -W %h:%p root@localhost"'
 os=centos
 disk=150G
 ram=12582912
@@ -39,7 +39,7 @@ devicename=eth0
 root_device=/dev/sda1
 
 [okd_bootstrap_nodes:vars]
-ansible_ssh_common_args='-o StrictHostKeyChecking="no" -o ProxyCommand="ssh -W %h:%p root@nyctea"'
+ansible_ssh_common_args='-o StrictHostKeyChecking="no" -o ProxyCommand="ssh -W %h:%p root@localhost"'
 os=coreos
 disk=20G
 ram=16777216
@@ -53,7 +53,7 @@ root_device=/dev/vda
 # Hosts definitions
 #
 [hypervisor_nodes]
-hypervisor-01 ansible_host=nyctea ansible_ssh_common_args='-o StrictHostKeyChecking="no"'
+hypervisor-01 ansible_host=localhost ansible_ssh_common_args='-o StrictHostKeyChecking="no"'
 
 [okd_master_nodes]
 okd-master-01 ansible_host=10.0.0.1 mac=52:54:00:aa:6c:b1
